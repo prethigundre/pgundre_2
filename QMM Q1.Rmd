@@ -1,0 +1,49 @@
+---
+title: "Assignment2"
+output: html_document
+date: "2023-09-09"
+---
+
+**Lp Model**
+Back Savers is a company that produces backpacks primarily for students. They are considering offering some combination of two different models—the Collegiate and the Mini. Both are made out of the same rip-resistant nylon fabric. Back Savers has a long-term contract with a supplier of the nylon and receives a 5000 square-foot shipment of the material each week. Each Collegiate requires 3 square feet while each Mini requires 2 square feet. The sales forecasts indicate that at most 1000 Collegiates and 1200 Minis can be sold per week. Each Collegiate requires 45 minutes of labor to produce and generates a unit profit of $32. Each Mini requires 40 minutes of labor and generates a unit profit of $24. Back Savers has 35 laborers that each provides 40 hours of labor per week. Management wishes to know what quantity of each type of backpack to produce per week.
+a. Clearly define the decision variables
+b. What is the objective function?
+c. What are the constraints?
+d. Write down the full mathematical formulation for this LP problem.
+
+**Answer for the above problem**
+
+``` {r}
+table1<-matrix(c(3,45,1000,32,2,40,1200,24), nrow = 2, ncol = 4, byrow = TRUE)
+#Specifying rown and column names
+colnames(table1)<-(c('Material Required', 'Labor(in Munites)', 'Sales','Profit(Per Unit)'))
+rownames(table1)<-(c('Collegiate', 'Mini'))
+table1
+
+```
+
+**Considering collegiate model as x1 and mini model as x2**
+Suppose,
+
+Number of backpacks in Collegiate Model $$=x_1$$
+Number of backpacks in Mini Model $$=x_2$$
+
+
+(a) Decision Variables are: $$x_1\hspace{.15cm}and\hspace{.15cm}x_2$$
+(b) Objective Functions are:$$Max\hspace{.09cm}Z\hspace{.15cm}=\hspace{.15cm}32x_1+24x_2$$
+(C) Constraints are:
+
+1.Material Constraints:$$3x_1+2x_2\le5000$$
+2.Labor Constraints: $$45x_1+40x_2\le35*40*60$$
+3.Sales Constraints:$$x_1\le1000$$
+                     $$x_2\le1200$$
+4.Nonnegativity Constraints:$$x_1\ge0\hspace{.2cm} and\hspace{.2cm} x_2\ge0$$
+
+(d) Mathematical Formulation for LP Model is: 
+$$Max\hspace{.09cm}Z\hspace{.15cm}=\hspace{.15cm}32x_1+24x_2$$
+$$3x_1+2x_2\le5000$$
+$$45x_1+40x_2\le35*40*60$$
+$$x_1\le1000$$
+$$x_2\le1200$$
+$$x_1\ge0\hspace{.2cm} and\hspace{.2cm} x_2\ge0$$
+ 
